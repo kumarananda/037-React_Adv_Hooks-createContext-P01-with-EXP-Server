@@ -6,7 +6,7 @@ const Student = require('../models/studentModel')
  * @access public
  */
 const getAllStudents = async (req, res) => {
-    console.log('ananda');
+    
     let student = await Student.find();
     res.render("stu-index", { student })
 }
