@@ -1,0 +1,10 @@
+{
+  fieldname: 'photo',
+  originalname: 'pexels-daniel-reche-1556706.jpg',
+  encoding: '7bit',
+  mimetype: 'image/jpeg',
+  destination: 'C:\\ananda\\LFWF\\GIT Assignment Submission\\037-MongoExpServ5-ExpressDom\\assets\\upload',
+  filename: '1656699330667_pexels-daniel-reche-1556706.jpg',
+  path: 'C:\\ananda\\LFWF\\GIT Assignment Submission\\037-MongoExpServ5-ExpressDom\\assets\\upload\\1656699330667_pexels-daniel-reche-1556706.jpg',
+  size: 2573390
+}
