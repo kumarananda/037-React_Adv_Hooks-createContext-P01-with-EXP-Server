@@ -8,6 +8,10 @@ const productSchema = mongoose.Schema(
             required : [true, "Title is required"],
             trim : true
         },
+        category : {
+            type : String,
+            required : [true , "Category is required" ]
+        },
         pro_id : {
             type : Number,
             required : [true, "Product ID is required"],
