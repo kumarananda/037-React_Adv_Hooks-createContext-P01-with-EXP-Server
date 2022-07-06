@@ -1,8 +1,11 @@
 import React from 'react'
+import CheildPage from './CheildPage'
 
 const Page3 = () => {
   return (
-    <div>Page3</div>
+    <>
+    {<CheildPage/>}
+    </>
   )
 }
 
