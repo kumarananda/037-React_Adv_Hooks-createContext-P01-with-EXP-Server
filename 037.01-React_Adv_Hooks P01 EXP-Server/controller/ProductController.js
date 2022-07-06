@@ -48,7 +48,7 @@ const singleProduct = async (req, res) => {
  * @access public
  */
 const createProduct = async(req, res) => {
-    // console.log(req.file.filename);
+    console.log(req.file.filename);
 
     await Product.create({
         ...req.body,
