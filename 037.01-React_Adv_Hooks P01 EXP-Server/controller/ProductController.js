@@ -6,10 +6,10 @@ const Product = require('../models/productModel')
  * @access public
  */
 const getAllProduct = async (req, res) => {
-    // let product = await Product.find();
-    // res.render("pro-index", { product })
+    let product = await Product.find();
+    res.render("pro-index", { product })
     // console.log('product');
-    res.render("pro-index")
+    // res.render("pro-index")
 }
 
 
@@ -48,7 +48,7 @@ const singleProduct = async (req, res) => {
  * @access public
  */
 const createProduct = async(req, res) => {
-    console.log(req.file.filename);
+    // console.log(req.file.filename);
 
     await Product.create({
         ...req.body,

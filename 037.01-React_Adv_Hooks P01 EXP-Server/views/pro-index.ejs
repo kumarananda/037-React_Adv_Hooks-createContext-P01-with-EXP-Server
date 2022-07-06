@@ -14,15 +14,26 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Cell</th>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Desc</th>
                                     <th>Photo</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- ejsseach -->
+                                <% product.forEach((element, index) => { %>
+                                    <tr>
+                                        <td><%= index + 1 %> </td>
+                                        <td><%= element.pro_id %></td>
+                                        <td><%= element.title %></td>
+                                        <td><%= element.descrip %></td>
+                                        <td><img style="width: 30px; height: 25px; object-fit: cover;" src="/assets/upload/product/<%= element.photo %>" alt=""></td>
+                                        <td></td>
+                                    </tr>
+                                 
+                                <% }) %>
                                 
 
                             </tbody>
