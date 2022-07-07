@@ -7,6 +7,8 @@ import Page2 from './components/pages/Page2';
 import Page3 from './components/pages/Page3';
 import Page4 from './components/pages/Page4';
 import MsgContext from './context/msgContext';
+import foodContexet from './context/foodContexet';
+
 
 function App() {
 
@@ -16,9 +18,30 @@ function App() {
   }
 
 
+
   return (
     < >
-      <MsgContext.Provider value={ {msg, setMsg, ageCal} }>
+      <foodContexet.Provider value={{
+
+        sobje : ['alu', "potol", 'bagun', 'sosa', 'gagor'],
+        flower : ['golap', 'chamale', 'togor', 'kodom']
+
+      }}>
+
+      <MsgContext.Provider value={ {
+        msg, 
+        setMsg, 
+        ageCal,
+        data1 : ['arrayvalue1', "arrayvalue2", "arrayvalue3", "arrayvalue2", ],
+        data2 : {
+          obj_val1 : 'value',
+          obj_val2 : 'value',
+          obj_val3 : 'value',
+        }
+
+        } }>
+
+
 
         <Container>
           <Row>
@@ -35,6 +58,8 @@ function App() {
         </Container>
 
       </MsgContext.Provider>
+      </foodContexet.Provider>
+
 
     </>
   );
