@@ -4,7 +4,7 @@ import CheildPage from './CheildPage'
 const Page3 = () => {
   return (
     <>
-      <CheildPage/>
+    {<CheildPage/>}
     </>
   )
 }
