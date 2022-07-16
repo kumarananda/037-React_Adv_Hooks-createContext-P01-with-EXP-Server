@@ -1,27 +1,13 @@
+// >>04
 import React, { useReducer } from 'react'
-// import { useState } from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
-
-
-const reducer = (state, action) => {
-  // console.log(action);
-  return state = action.paload
-}
-// hare inetial/default value == state
-// action recive object type data from dispatch
+import { inasialMessage, messageReducer } from '../../Reducers/messageReducer';
 
 
 
 const Home = () => {
 
-  // const [kotha, setKotha] = useState('I love Reducers');
-
-  const [kotha, dispatch] = useReducer(reducer, 'This is reducer');
-      // value
-      //       function call from DOM
-      //                                function call from JS(out of components)
-      //                                            inasial/default value
-
+  const [messageState, dispatch] = useReducer(messageReducer, inasialMessage);
 
   return (
     <>
@@ -30,9 +16,18 @@ const Home = () => {
           <Col md={4}>
             <Card className='shadow'>
               <Card.Body>
-                <input type='text' className='form-control' value={kotha} onChange={(e) => dispatch({type:'', paload : e.target.value})} />
+                {/* <input value={messageState.name} onChange={ (e) => dispatch({payload : {...messageState, name : e.target.value }})} placeholder='Enter your Name'  type='text' className='form-control'  /> <br />
+                <input value={messageState.age} onChange={ (e) => dispatch({payload : {...messageState, age : e.target.value }})} placeholder='Enter your Mail'  type='text' className='form-control'  /> <br />
+                <input value={messageState.skill} onChange={ (e) => dispatch({payload : {...messageState, skill : e.target.value }})} placeholder='Enter your Phone'  type='text' className='form-control'  />
+                <hr /> */}
+
+                <input placeholder='Enter your Name'  type='text' className='form-control' value={messageState.name} onChange={ e => dispatch({payload : { name : e.target.value }})}   /> <br />
+                <input placeholder='Enter your Age'  type='text' className='form-control' value={messageState.age} onChange={ e => dispatch({payload : { age : e.target.value }})}   /> <br />
+                <input placeholder='Enter your Skill'  type='text' className='form-control' value={messageState.skill} onChange={ e => dispatch({payload : { skill : e.target.value }})}   />
                 <hr />
-                <h1>{kotha}</h1>
+                <p>Name: {messageState.name}</p>
+                <p>Age: {messageState.age}</p>
+                <p>Skill : {messageState.skill}</p>
               </Card.Body>
             </Card>
           </Col>
@@ -44,4 +39,6 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;
+
+

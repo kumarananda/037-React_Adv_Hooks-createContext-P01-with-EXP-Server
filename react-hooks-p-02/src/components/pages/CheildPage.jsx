@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import MsgContext from '../../context/msgContext'
 
 const CheildPage = () => {
-  const {msg, setMsg, ageCal} = useContext(MsgContext)
+  const {msg, setMsg, ageCal} = useContext(MsgContext, )
   return (
     <>
         <h1>From CheildPage</h1>
