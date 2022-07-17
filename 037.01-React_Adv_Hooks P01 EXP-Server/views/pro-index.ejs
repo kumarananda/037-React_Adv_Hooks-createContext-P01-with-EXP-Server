@@ -30,7 +30,11 @@
                                         <td><%= element.title %></td>
                                         <td><%= element.descrip %></td>
                                         <td><img style="width: 30px; height: 25px; object-fit: cover;" src="/assets/upload/product/<%= element.photo %>" alt=""></td>
-                                        <td></td>
+                                        <td>
+                                            <a href="/product/<%= element._id %>" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
+                                            <a href="/product/edit/<%= element._id %>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+                                            <a href="/product/delete/<%= element._id %>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                        </td>
                                     </tr>
                                  
                                 <% }) %>

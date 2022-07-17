@@ -11,6 +11,28 @@ const getAllStudents = async (req, res) => {
     res.render("stu-index", { student })
 }
 
+/**
+ * @desc post student data to detabase
+ * @name POST req / 
+ * @param {*} res 
+ * @param {*} req 
+ * @access public
+ */
+ const createStudents = async(req, res) => {
+    // console.log(req.file.filename);
+
+    await Student.create({
+        ...req.body,
+        photo : req.file.filename
+    })
+
+    // if require stay on this form page 
+    // res.render('create')
+
+    // redirect to home page
+    res.redirect('/student')
+}
+
 
 /**
 
@@ -38,27 +60,7 @@ const singleStudent = async (req, res) => {
     res.render("stu-show", { singleStudent });
 }
 
-/**
- * @desc post student data to detabase
- * @name POST req / 
- * @param {*} res 
- * @param {*} req 
- * @access public
- */
-const createStudents = async(req, res) => {
-    // console.log(req.file.filename);
 
-    await Student.create({
-        ...req.body,
-        photo : req.file.filename
-    })
-
-    // if require stay on this form page 
-    // res.render('create')
-
-    // redirect to home page
-    res.redirect('/student')
-}
 
 
 /**

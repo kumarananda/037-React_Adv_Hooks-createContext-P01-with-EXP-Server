@@ -8,7 +8,7 @@ const Product = require('../models/productModel')
 const getAllProduct = async (req, res) => {
     let product = await Product.find();
     res.render("pro-index", { product })
-    // console.log('product');
+    console.log(product);
     // res.render("pro-index")
 }
 
@@ -52,6 +52,7 @@ const createProduct = async(req, res) => {
 
     await Product.create({
         ...req.body,
+        
         photo : req.file.filename
     })
 
