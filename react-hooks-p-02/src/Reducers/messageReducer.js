@@ -2,7 +2,8 @@
 export const inasialMessage = {
     name : "Ananda Kumar Saha",
     age : 35,
-    skill : "MERN"
+    skill : "MERN",
+    error : false
 };
 
 // message Reducer
