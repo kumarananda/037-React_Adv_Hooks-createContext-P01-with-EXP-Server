@@ -8,6 +8,7 @@ import { inasialMessage, messageReducer } from '../../Reducers/messageReducer';
 const Home = () => {
 
   const [messageState, dispatch] = useReducer(messageReducer, inasialMessage);
+  // console.log(messageState);
 
   return (
     <>
@@ -28,9 +29,9 @@ const Home = () => {
                 
                 <input placeholder='Enter your Skill'  type='text' className='form-control' value={messageState.skill} onChange={ e => dispatch({ type: "DEVS_DATA_LOAD", payload : { skill : e.target.value }})} />
                 <br />
-                <select value={ messageState.error } onChange={e => dispatch({ type: "ALERT_LOAD", payload : { error : e.target.value}})} className='form-select'>
-                  <option value="start">Start</option>
-                  <option value="false">Off</option>
+                <select  onChange={e => dispatch({ type: "ALERT_LOAD", payload : { error : e.target.value}})} className='form-select'>
+                  <option value="Off">Off</option>
+                  <option value="Start">Start</option>
                 </select>
                 <hr />
                 <p>Name: {messageState.name}</p>
