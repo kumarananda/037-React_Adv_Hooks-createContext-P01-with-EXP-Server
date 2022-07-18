@@ -34,6 +34,10 @@ app.use(expressEjsLayouts);
 // routes
 app.use('/product', require('./routes/ProductRoutes')) 
 app.use('/student', require('./routes/StudentRoutes'))
+
+app.use('/api/product', require('./routes/ApiProductRoutes')) 
+app.use('/api/student', require('./routes/ApiStudentRoutes'))
+
 app.get('/', HomePage)
 
 

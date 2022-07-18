@@ -1,6 +1,6 @@
 const express = require('express');
 const router =  express.Router();
-const { getAllProduct, showProductAddForm, createProduct, showProductEditForm, deleteProduct, editProduct, singleProduct } = require('../controller/ProductController');
+const { sendAllProduct } = require('../controller/ApiProductController');
 const multer = require('multer');
 const path = require('path');
 
@@ -24,14 +24,16 @@ const productMulter = multer({
 // router.route('/').get(getAllStudents);
 // router.route('/create').get(createStudents);
 
-router.get('/', getAllProduct )
-router.post('/',productMulter, createProduct )
-router.get('/create', showProductAddForm )
-router.get('/edit/:id', showProductEditForm )
-router.get('/delete/:id', deleteProduct )
+// router.get('/', getAllProduct )
+// router.post('/',productMulter, createProduct )
+// router.get('/create', showProductAddForm )
+// router.get('/edit/:id', showProductEditForm )
+// router.get('/delete/:id', deleteProduct )
 
-router.post('/edit/:id', productMulter,  editProduct )
-router.get('/:id', singleProduct )
+// router.post('/edit/:id', productMulter,  editProduct )
+// router.get('/:id', singleProduct )
+
+router.get('/', sendAllProduct)
 
 
 
