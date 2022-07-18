@@ -8,37 +8,10 @@ const Product = require('../models/productModel')
 const getAllProduct = async (req, res) => {
     let product = await Product.find();
     res.render("pro-index", { product })
-    console.log(product);
+    // console.log(product);
     // res.render("pro-index")
 }
 
-
-/**
-
- * @desc get all studentes data
- * @name GET /student/create
- * @access public
- */
-const showProductAddForm = (req, res) => {
-
-    res.render("pro-create")
-}
-
-
-/**
-
- * @desc get all studentes data
- * @name GET /student/create
- * @access public
- */
-const singleProduct = async (req, res) => {
-    // console.log(req.params.id);
-    // let id = req.params.id;
-
-    // let singleProduct = await Product.findById(id);
-    // res.render("pro-show", { singleProduct });
-    res.render("pro-show");
-}
 
 /**
  * @desc post student data to detabase
@@ -47,7 +20,7 @@ const singleProduct = async (req, res) => {
  * @param {*} req 
  * @access public
  */
-const createProduct = async(req, res) => {
+ const createProduct = async(req, res) => {
     // console.log(req.file.filename);
 
     await Product.create({
@@ -62,6 +35,37 @@ const createProduct = async(req, res) => {
     // redirect to home page
     res.redirect('/product')
 }
+
+/**
+
+ * @desc get all studentes data
+ * @name GET /student/create
+ * @access public
+ */
+const showProductAddForm = (req, res) => {
+
+    res.render("pro-create", )
+}
+
+
+/**
+
+ * @desc get all studentes data
+ * @name GET /student/create
+ * @access public
+ */
+const singleProduct = async (req, res) => {
+    // console.log(req.params.id);
+    let id = req.params.id;
+    // console.log(id);
+
+    let singleProduct = await Product.findById(id);
+    // console.log(singleProduct);
+
+    res.render("pro-show", { singleProduct });
+    // res.render("pro-show");
+}
+
 
 
 /**
@@ -91,11 +95,11 @@ const createProduct = async(req, res) => {
 const showProductEditForm = async(req, res) => {
     let id = req.params.id;
 
-
-    // let singleProduct = await Product.findById(id);
-    // console.log(singleStudent.id);
-    // res.render("pro-edit" , {singleProduct})
-    res.render("pro-edit" )
+      
+    let singleProduct = await Product.findById(id);
+    console.log(singleProduct);
+    
+    res.render("pro-edit", { singleProduct });
 
 }
 
@@ -109,28 +113,39 @@ const showProductEditForm = async(req, res) => {
  const editProduct = async(req, res) => {
     // console.log(req.file.filename);
     let id = req.params.id;
+    console.log(req.body);
+
+    let fileName = req.body.old_photo;  
+    if(req.file){
+        fileName = req.file.filename
+    }
+    await Product.findByIdAndUpdate(id , {...req.body,
+    photo : fileName }, {
+        new :true
+    })
+    res.redirect('/product')
+}
+const editStudents = async(req, res) => {
+    // console.log(req.file.filename);
+    let id = req.params.id;
  
-console.log(req.file);
+    console.log(req.file);
 
     let fileName = req.body.old_photo;
-
-    // Error
-    // if(req.file.filename){
-    //     fileName = req.file.filename
-    // }
     
     if(req.file){
         fileName = req.file.filename
     }
 
-    await Product.findByIdAndUpdate(id , {...req.body,
+    await Student.findByIdAndUpdate(id , {...req.body,
     photo : fileName }, {
         new :true
     })
 
 
-    res.redirect('/product')
+    res.redirect('/student')
 }
+
 
 
 

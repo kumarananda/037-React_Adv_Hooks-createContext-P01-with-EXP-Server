@@ -110,7 +110,7 @@ const showStudentEditForm = async(req, res) => {
     // console.log(req.file.filename);
     let id = req.params.id;
  
-console.log(req.file);
+    console.log(req.file);
 
     let fileName = req.body.old_photo;
 

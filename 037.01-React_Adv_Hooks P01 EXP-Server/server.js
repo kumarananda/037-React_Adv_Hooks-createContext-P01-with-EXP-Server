@@ -5,6 +5,7 @@ const express = require('express');
 
 const expressEjsLayouts = require('express-ejs-layouts');
 const mongooseConncet = require('./config/db');
+const {HomePage} = require('./controller/HomeController');
 const app = express();
 
 
@@ -33,7 +34,7 @@ app.use(expressEjsLayouts);
 // routes
 app.use('/product', require('./routes/ProductRoutes')) 
 app.use('/student', require('./routes/StudentRoutes'))
-
+app.get('/', HomePage)
 
 
 
