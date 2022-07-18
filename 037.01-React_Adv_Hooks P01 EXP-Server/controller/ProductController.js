@@ -25,7 +25,6 @@ const getAllProduct = async (req, res) => {
 
     await Product.create({
         ...req.body,
-        
         photo : req.file.filename
     })
 
@@ -79,7 +78,7 @@ const singleProduct = async (req, res) => {
     // console.log(req.file.filename);
     let id = req.params.id;
 
-    await Product.findByIdAndDelete(id )
+    await Product.findByIdAndDelete(id)
 
     res.redirect('/product')
 }
@@ -110,21 +109,24 @@ const showProductEditForm = async(req, res) => {
  * @param {*} req 
  * @access public
  */
- const editProduct = async(req, res) => {
+const editProduct = async(req, res) => {
     // console.log(req.file.filename);
+
     let id = req.params.id;
     console.log(req.body);
 
-    let fileName = req.body.old_photo;  
+    let fileName = req.body.old_photo;
+
     if(req.file){
         fileName = req.file.filename
     }
-    await Product.findByIdAndUpdate(id , {...req.body,
+    await Product.findByIdAndUpdate(id, {...req.body,
     photo : fileName }, {
         new :true
     })
     res.redirect('/product')
 }
+
 const editStudents = async(req, res) => {
     // console.log(req.file.filename);
     let id = req.params.id;
@@ -142,13 +144,8 @@ const editStudents = async(req, res) => {
         new :true
     })
 
-
     res.redirect('/student')
 }
-
-
-
-
 
 
 

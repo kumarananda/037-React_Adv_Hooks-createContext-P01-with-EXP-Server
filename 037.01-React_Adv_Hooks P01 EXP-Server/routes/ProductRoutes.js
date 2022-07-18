@@ -13,7 +13,6 @@ const storage = multer.diskStorage({
     filename : (req, file, cb) => {
         cb(null, Date.now()+'_'+ file.originalname)
     }
-
     
 })
 
@@ -24,6 +23,7 @@ const productMulter = multer({
 
 // router.route('/').get(getAllStudents);
 // router.route('/create').get(createStudents);
+
 router.get('/', getAllProduct )
 router.post('/',productMulter, createProduct )
 router.get('/create', showProductAddForm )
