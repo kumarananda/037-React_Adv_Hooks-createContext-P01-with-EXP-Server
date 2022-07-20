@@ -1,6 +1,6 @@
 const express = require('express');
 const router =  express.Router();
-const { sendAllProduct } = require('../controller/ApiProductController');
+const { sendAllProduct, postProductData } = require('../controller/ApiProductController');
 const multer = require('multer');
 const path = require('path');
 
@@ -34,6 +34,7 @@ const productMulter = multer({
 // router.get('/:id', singleProduct )
 
 router.get('/', sendAllProduct)
+router.post('/', productMulter, postProductData)
 
 
 

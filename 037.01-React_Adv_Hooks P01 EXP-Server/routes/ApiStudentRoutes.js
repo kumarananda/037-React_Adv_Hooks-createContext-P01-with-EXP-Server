@@ -22,7 +22,7 @@ const studenMulter = multer({
 }).single('photo')
 
 router.get('/', sendAllStudent)
-router.post('/', postStudentData)
+router.post('/', studenMulter, postStudentData)
 
 
 

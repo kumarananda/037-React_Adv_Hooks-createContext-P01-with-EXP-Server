@@ -12,9 +12,21 @@ const sendAllStudent = async (req, res) => {
 // post Student Data to mongo
 // method post
 // link >> http://localhost:5050/api/student
-const postStudentData = (req, res) => {
+const postStudentData = async (req, res) => {
     console.log('test');
-    res.status(200).json()
+
+    let img = '1658167280120_baby-5.jpg' // defualt img for postman test
+    if(req.file){
+        img = req.file.filename
+    }
+
+    await Student.create({
+        ...req.body,
+        photo : img
+    })
+
+
+    res.status(200).json('done')
 }
 
 
