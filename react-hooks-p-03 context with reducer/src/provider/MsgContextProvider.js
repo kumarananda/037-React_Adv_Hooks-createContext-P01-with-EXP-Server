@@ -5,6 +5,7 @@ import { initialMsg, msgReducer } from "../Reducer/msgReducer.js"
 
 const MsgContextProvider = ({children}) => {
 
+    // created/decelired Reducer function  call from context-provider
     const [msgState, dispatch] = useReducer(msgReducer, initialMsg);
 
   return (
